@@ -86,7 +86,7 @@ public class SessionTest {
 
         Session session2 = sessionFactory.openSession();
         transaction = session2.beginTransaction();
-        student = new Student(2, "韩露", "女", new Date(), new Address("333300","13120733363","江西省乐平市"));
+        student = new Student(2, "韩露", "女", new Date(), new Address("333300","13120733362","江西省乐平市"));
         session2.doWork(new Work() {
             @Override
             public void execute(Connection connection) throws SQLException {
@@ -128,7 +128,7 @@ public class SessionTest {
 
         Session session2 = sessionFactory.getCurrentSession();
         transaction = session2.beginTransaction();
-        student = new Student(2, "韩露", "女", new Date(), new Address("333300","13120733363","江西省乐平市"));
+        student = new Student(2, "韩露", "女", new Date(), new Address("333300","13120733362","江西省乐平市"));
         session2.doWork(new Work() {
             @Override
             public void execute(Connection connection) throws SQLException {

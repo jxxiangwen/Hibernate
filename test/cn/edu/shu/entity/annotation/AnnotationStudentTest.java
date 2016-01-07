@@ -116,7 +116,6 @@ public class AnnotationStudentTest {
     public void loadStudentTest() {
         int studentId = 3;
         AnnotationStudent annotationStudent = (AnnotationStudent) session.load(AnnotationStudent.class, studentId);
-        ;
         try {
             System.out.println(annotationStudent.getClass().getName());
             System.out.println(annotationStudent);

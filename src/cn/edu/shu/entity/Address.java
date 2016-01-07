@@ -8,9 +8,9 @@ import java.io.Serializable;
  * @version 0.1
  */
 public class Address implements Serializable {
-    private String postCode;
-    private String phone;
-    private String address;
+    private String postCode;//邮政编码
+    private String phone;//电话
+    private String address;//地址
 
     public Address() {
 

@@ -9,12 +9,12 @@ import java.util.Date;
  * @version 0.1
  */
 public class Student implements Serializable {
-    private int studentId;
-    private String studentName;
-    private String gender;
-    private Date birthday;
-    private Address address;
-    private Blob picture;
+    private int studentId;//学生Id
+    private String studentName;//新姓名
+    private String gender;//性别
+    private Date birthday;//出生日期
+    private Address address;//地址
+    private Blob picture;//头像
 
     public Student() {
 

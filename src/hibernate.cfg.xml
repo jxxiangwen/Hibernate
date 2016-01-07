@@ -36,7 +36,9 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <!--映射文件：配置方式-->
         <mapping resource="cn/edu/shu/entity/Student.hbm.xml"/>
+        <mapping resource="cn/edu/shu/entity/Grade.hbm.xml"/>
         <!--映射文件：注解方式-->
         <mapping class="cn.edu.shu.entity.annotation.AnnotationStudent"/>
+        <mapping class="cn.edu.shu.entity.annotation.AnnotationGrade"/>
     </session-factory>
 </hibernate-configuration>

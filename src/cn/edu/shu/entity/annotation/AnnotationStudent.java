@@ -15,21 +15,21 @@ public class AnnotationStudent implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "student_id")
-    private int studentId;
+    private int studentId;//学生id
     @Basic
-    @Column(name = "student_name", nullable = false, length = 20)
-    private String studentName;
+    @Column(name = "student_name", nullable = true, length = 20)
+    private String studentName;//姓名
     @Basic
     @Column(name = "gender", length = 4)
-    private String gender;
+    private String gender;//性别
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "birthday", length = 20)
-    private Date birthday;
+    private Date birthday;//出生日期
     @Embedded
-    private AnnotationAddress annotationAddress;
+    private AnnotationAddress annotationAddress;//地址
     @Lob
     @Column(name = "picture")
-    private Blob picture;
+    private Blob picture;//头像
 
     public AnnotationStudent() {
 

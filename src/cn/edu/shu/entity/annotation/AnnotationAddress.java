@@ -11,11 +11,11 @@ import java.io.Serializable;
 @Embeddable
 public class AnnotationAddress implements Serializable {
     @Column(name = "post_code")
-    private String postCode;
+    private String postCode;//邮政编码
     @Column(name = "phone")
-    private String phone;
+    private String phone;//电话
     @Column(name = "annotation_address")
-    private String annotationAddress;
+    private String annotationAddress;//地址
 
     public AnnotationAddress() {
 

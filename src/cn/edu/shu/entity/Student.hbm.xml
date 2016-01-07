@@ -8,7 +8,7 @@
         <id name="studentId" type="int">
             <column name="student_id"/>
             <!--字段赋值方式-->
-            <generator class="increment"></generator>
+            <generator class="increment"/>
         </id>
         <property name="studentName" type="java.lang.String">
             <column name="student_name"/>
