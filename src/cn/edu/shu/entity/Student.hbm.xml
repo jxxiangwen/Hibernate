@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edu.shu.entity.Student" table="t_student">
+        <id name="studentId" type="int">
+            <column name="student_id"/>
+            <!--字段赋值方式-->
+            <generator class="increment"></generator>
+        </id>
+        <property name="studentName" type="java.lang.String">
+            <column name="student_name"/>
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="gender"/>
+        </property>
+        <!--只需要年月日-->
+        <!--<property name="birthday" type="date">-->
+        <!--只需要时分秒-->
+        <!--<property name="birthday" type="time">-->
+        <property name="birthday" type="java.util.Date">
+            <column name="birthday"/>
+        </property>
+        <component name="address" class="cn.edu.shu.entity.Address">
+            <property name="postCode" type="java.lang.String">
+                <column name="post_code"/>
+            </property>
+            <property name="phone" type="java.lang.String">
+                <column name="phone"/>
+            </property>
+            <property name="address" type="java.lang.String">
+                <column name="address"/>
+            </property>
+        </component>
+        <property name="picture" type="java.sql.Blob">
+            <column name="picture"/>
+        </property>
+    </class>
+</hibernate-mapping>
