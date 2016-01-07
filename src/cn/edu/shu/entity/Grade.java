@@ -11,6 +11,7 @@ public class Grade {
     private String gradeName;//班级名称
     private String gradeDesc;//班级描述信息
 
+    //一对多使用
     private Set<Student> students = new HashSet<>();
 
     public Grade() {

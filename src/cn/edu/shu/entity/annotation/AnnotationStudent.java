@@ -17,19 +17,24 @@ public class AnnotationStudent implements Serializable {
     @Column(name = "student_id")
     private int studentId;//学生id
     @Basic
-    @Column(name = "student_name", nullable = true, length = 20)
+    @Column(name = "student_name", nullable = false, length = 20)
     private String studentName;//姓名
     @Basic
     @Column(name = "gender", length = 4)
     private String gender;//性别
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "birthday", length = 20)
+    @Column(name = "birthday")
     private Date birthday;//出生日期
     @Embedded
+    @Column(name = "address")
     private AnnotationAddress annotationAddress;//地址
     @Lob
     @Column(name = "picture")
     private Blob picture;//头像
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "annotation_grade_id")//指定外键名称
+    private AnnotationGrade annotationGrade;//多对一使用
 
     public AnnotationStudent() {
 
@@ -89,6 +94,14 @@ public class AnnotationStudent implements Serializable {
 
     public void setPicture(Blob picture) {
         this.picture = picture;
+    }
+
+    public AnnotationGrade getAnnotationGrade() {
+        return annotationGrade;
+    }
+
+    public void setAnnotationGrade(AnnotationGrade annotationGrade) {
+        this.annotationGrade = annotationGrade;
     }
 
     @Override

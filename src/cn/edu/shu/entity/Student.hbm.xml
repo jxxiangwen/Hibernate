@@ -37,5 +37,7 @@
         <property name="picture" type="java.sql.Blob">
             <column name="picture"/>
         </property>
+        <!--多对一-->
+        <many-to-one name="grade" class="cn.edu.shu.entity.Grade" column="grade_id"/>
     </class>
 </hibernate-mapping>

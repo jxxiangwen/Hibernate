@@ -62,7 +62,7 @@ public class AnnotationSessionTest {
      * 测试getCurrentSession每次连接对象不同，session如果没有手动关闭，多次之后会导致连接池溢出
      */
     @Test
-    public void testSaveStudentWithOpenSession() {
+    public void SaveStudentWithOpenSessionTest() {
         //创建配置对象
         Configuration config = new Configuration().configure();
         //创建服务注册对象
@@ -104,7 +104,7 @@ public class AnnotationSessionTest {
      * 测试getCurrentSession每次连接对象相同
      */
     @Test
-    public void testSaveStudentWithGetCurrentSession() {
+    public void SaveStudentWithGetCurrentSessionTest() {
         //创建配置对象
         Configuration config = new Configuration().configure();
         //创建服务注册对象

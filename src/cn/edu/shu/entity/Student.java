@@ -16,6 +16,9 @@ public class Student implements Serializable {
     private Address address;//地址
     private Blob picture;//头像
 
+    //多对一使用
+    private Grade grade;
+
     public Student() {
 
     }
@@ -74,6 +77,14 @@ public class Student implements Serializable {
 
     public void setPicture(Blob picture) {
         this.picture = picture;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 
     @Override

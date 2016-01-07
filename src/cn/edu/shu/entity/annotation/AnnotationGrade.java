@@ -1,5 +1,8 @@
 package cn.edu.shu.entity.annotation;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,65 +15,69 @@ import java.util.Set;
 public class AnnotationGrade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "grade_id")
-    private int gradeId;//年纪号
-    @Column(name = "grade_name", nullable = true, length = 20)
-    private String gradeName;//年纪名称
-    @Column(name = "grade_desc")
-    private String gradeDesc;//
+    @Column(name = "annotation_grade_id")
+    private int annotationGradeId;//年纪号
+    @Basic
+    @Column(name = "annotation_grade_name", nullable = false, length = 20)
+    private String annotationGradeName;//年纪名称
+    @Basic
+    @Column(name = "annotation_grade_desc", nullable = true)
+    private String annotationGradeDesc;//
 
-    @OneToMany
-    @JoinColumn(name="grade_id")
-    private Set<AnnotationStudent> annotationStudents = new HashSet<>();
+    //由多方的annotationGrade来维护
+    @OneToMany(mappedBy="annotationGrade",targetEntity = AnnotationStudent.class,cascade={CascadeType.PERSIST,CascadeType.MERGE})
+    @LazyCollection(LazyCollectionOption.EXTRA)
+    private Set<AnnotationStudent> annotationStudent = new HashSet<>();//一对多使用
 
     public AnnotationGrade() {
 
     }
 
-    public AnnotationGrade(int gradeId, String gradeName, String gradeDesc) {
-        this.gradeId = gradeId;
-        this.gradeName = gradeName;
-        this.gradeDesc = gradeDesc;
+    public AnnotationGrade(int annotationGradeId, String annotationGradeName, String annotationGradeDesc) {
+        this.annotationGradeId = annotationGradeId;
+        this.annotationGradeName = annotationGradeName;
+        this.annotationGradeDesc = annotationGradeDesc;
     }
 
-    public int getGradeId() {
-        return gradeId;
+    public int getAnnotationGradeId() {
+        return annotationGradeId;
     }
 
-    public void setGradeId(int gradeId) {
-        this.gradeId = gradeId;
+    public void setAnnotationGradeId(int annotationGradeId) {
+        this.annotationGradeId = annotationGradeId;
     }
 
-    public String getGradeName() {
-        return gradeName;
+    public String getAnnotationGradeName() {
+        return annotationGradeName;
     }
 
-    public void setGradeName(String gradeName) {
-        this.gradeName = gradeName;
+    public void setAnnotationGradeName(String annotationGradeName) {
+        this.annotationGradeName = annotationGradeName;
     }
 
-    public String getGradeDesc() {
-        return gradeDesc;
+    public String getAnnotationGradeDesc() {
+        return annotationGradeDesc;
     }
 
-    public void setGradeDesc(String gradeDesc) {
-        this.gradeDesc = gradeDesc;
+    public void setAnnotationGradeDesc(String annotationGradeDesc) {
+        this.annotationGradeDesc = annotationGradeDesc;
     }
 
-    public Set<AnnotationStudent> getAnnotationStudents() {
-        return annotationStudents;
+    public Set<AnnotationStudent> getAnnotationStudent() {
+        return annotationStudent;
     }
 
-    public void setAnnotationStudents(Set<AnnotationStudent> annotationStudents) {
-        this.annotationStudents = annotationStudents;
+    public void setAnnotationStudents(Set<AnnotationStudent> annotationStudent) {
+        this.annotationStudent = annotationStudent;
     }
+
 
     @Override
     public String toString() {
-        return "Grade{" +
-                "gradeId=" + gradeId +
-                ", gradeName='" + gradeName + '\'' +
-                ", gradeDesc='" + gradeDesc + '\'' +
+        return "AnnotationGrade{" +
+                "annotationGradeId=" + annotationGradeId +
+                ", annotationGradeName='" + annotationGradeName + '\'' +
+                ", annotationGradeDesc='" + annotationGradeDesc + '\'' +
                 '}';
     }
 }
