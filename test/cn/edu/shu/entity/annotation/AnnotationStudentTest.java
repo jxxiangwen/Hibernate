@@ -73,6 +73,8 @@ public class AnnotationStudentTest {
 //                    }
 //                }
 //        );
+        AnnotationGrade annotationGrade = (AnnotationGrade) session.load(AnnotationGrade.class,2);
+        annotationStudent.setAnnotationGrade(annotationGrade);
         session.save(annotationStudent);
         //session.flush();
     }
@@ -96,6 +98,8 @@ public class AnnotationStudentTest {
             e.printStackTrace();
         }
         annotationStudent.setPicture(image);
+        AnnotationGrade annotationGrade = (AnnotationGrade) session.load(AnnotationGrade.class,2);
+        annotationStudent.setAnnotationGrade(annotationGrade);
         session.save(annotationStudent);
     }
 
@@ -104,7 +108,7 @@ public class AnnotationStudentTest {
      */
     @Test
     public void getStudentTest() {
-        AnnotationStudent annotationStudent = (AnnotationStudent) session.get(AnnotationStudent.class, 1);
+        AnnotationStudent annotationStudent = (AnnotationStudent) session.get(AnnotationStudent.class, 3);
         System.out.println(annotationStudent);
         System.out.println(annotationStudent.getClass().getName());
     }
@@ -131,7 +135,7 @@ public class AnnotationStudentTest {
      */
     @Test
     public void updateStudentTest() {
-        AnnotationStudent annotationStudent = (AnnotationStudent) session.get(AnnotationStudent.class, 1);
+        AnnotationStudent annotationStudent = (AnnotationStudent) session.get(AnnotationStudent.class, 3);
         annotationStudent.setAnnotationAddress(new AnnotationAddress("333300", "13120733363", "上海市"));
         session.update(annotationStudent);
     }
@@ -141,7 +145,7 @@ public class AnnotationStudentTest {
      */
     @Test
     public void deleteStudentTest() {
-        AnnotationStudent annotationStudent = (AnnotationStudent) session.get(AnnotationStudent.class, 1);
+        AnnotationStudent annotationStudent = (AnnotationStudent) session.get(AnnotationStudent.class, 8);
         session.delete(annotationStudent);
     }
 }

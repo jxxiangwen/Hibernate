@@ -80,7 +80,7 @@ public class AnnotationGradeTest {
         Session session = HibernateUtil.getSession();
         //创建事务
         Transaction transaction = session.beginTransaction();
-        AnnotationGrade annotationGrade = (AnnotationGrade) session.load(AnnotationGrade.class,1);
+        AnnotationGrade annotationGrade = (AnnotationGrade) session.load(AnnotationGrade.class,2);
         System.out.println(annotationGrade.getAnnotationGradeName() + "," + annotationGrade.getAnnotationGradeDesc());
         Iterator<AnnotationStudent> it = annotationGrade.getAnnotationStudent().iterator();
         while (it.hasNext()){
