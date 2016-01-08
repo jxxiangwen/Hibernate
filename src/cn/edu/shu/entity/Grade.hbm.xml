@@ -17,6 +17,7 @@
             <column name="grade_desc"/>
         </property>
         <!--一对多-->
+        <!--inverse="true"由多方来维护，性能更好-->
         <set name="students" table="t_student">
             <key column="grade_id"/>
             <one-to-many class="cn.edu.shu.entity.Student"/>

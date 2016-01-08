@@ -25,7 +25,7 @@ public class AnnotationGrade {
     private String annotationGradeDesc;//
 
     //由多方的annotationGrade来维护
-    @OneToMany(mappedBy="annotationGrade",targetEntity = AnnotationStudent.class,cascade={CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy="annotationGrade",targetEntity = AnnotationStudent.class,cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @LazyCollection(LazyCollectionOption.EXTRA)
     private Set<AnnotationStudent> annotationStudent = new HashSet<>();//一对多使用
 
@@ -33,8 +33,7 @@ public class AnnotationGrade {
 
     }
 
-    public AnnotationGrade(int annotationGradeId, String annotationGradeName, String annotationGradeDesc) {
-        this.annotationGradeId = annotationGradeId;
+    public AnnotationGrade( String annotationGradeName, String annotationGradeDesc) {
         this.annotationGradeName = annotationGradeName;
         this.annotationGradeDesc = annotationGradeDesc;
     }

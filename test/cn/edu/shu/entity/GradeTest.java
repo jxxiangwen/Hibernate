@@ -25,7 +25,7 @@ public class GradeTest {
     public void saveGradeTestOneToManyTest() {
         Grade grade = new Grade(1,"Java一班","Java软件开发一班");
         Student student1 = new Student(1, "邹祥文", "男", new Date(), new Address("333300", "13120733363", "江西省乐平市"));
-        Student student2 = new Student(1, "韩露", "女", new Date(), new Address("333300", "13120733362", "江西省乐平市"));
+        Student student2 = new Student(2, "韩露", "女", new Date(), new Address("333300", "13120733362", "江西省乐平市"));
         grade.getStudents().add(student1);
         grade.getStudents().add(student2);
 
@@ -46,7 +46,7 @@ public class GradeTest {
     public void saveGradeTestManyToOneTest() {
         Grade grade = new Grade(1,"Java二班","Java软件开发二班");
         Student student1 = new Student(1, "邹祥文", "男", new Date(), new Address("333300", "13120733363", "江西省乐平市"));
-        Student student2 = new Student(1, "韩露", "女", new Date(), new Address("333300", "13120733362", "江西省乐平市"));
+        Student student2 = new Student(2, "韩露", "女", new Date(), new Address("333300", "13120733362", "江西省乐平市"));
         student1.setGrade(grade);
         student2.setGrade(grade);
 

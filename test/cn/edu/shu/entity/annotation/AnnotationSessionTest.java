@@ -73,7 +73,7 @@ public class AnnotationSessionTest {
         Session session1 = sessionFactory.openSession();
         //打开事务
         Transaction transaction = session1.beginTransaction();
-        AnnotationStudent annotationStudent = new AnnotationStudent(1, "邹祥文", "男", new Date(), new AnnotationAddress("333300","13120733363","江西省乐平市"));
+        AnnotationStudent annotationStudent = new AnnotationStudent("邹祥文", "男", new Date(), new AnnotationAddress("333300","13120733363","江西省乐平市"));
         session1.doWork(new Work() {
             @Override
             public void execute(Connection connection) throws SQLException {
@@ -86,7 +86,7 @@ public class AnnotationSessionTest {
 
         Session session2 = sessionFactory.openSession();
         transaction = session2.beginTransaction();
-        annotationStudent = new AnnotationStudent(2, "韩露", "女", new Date(), new AnnotationAddress("333300","13120733362","江西省乐平市"));
+        annotationStudent = new AnnotationStudent("韩露", "女", new Date(), new AnnotationAddress("333300","13120733362","江西省乐平市"));
         session2.doWork(new Work() {
             @Override
             public void execute(Connection connection) throws SQLException {
@@ -115,7 +115,7 @@ public class AnnotationSessionTest {
         Session session1 = sessionFactory.getCurrentSession();
         //打开事务
         Transaction transaction = session1.beginTransaction();
-        AnnotationStudent annotationStudent = new AnnotationStudent(1, "邹祥文", "男", new Date(), new AnnotationAddress("333300","13120733363","江西省乐平市"));
+        AnnotationStudent annotationStudent = new AnnotationStudent("邹祥文", "男", new Date(), new AnnotationAddress("333300","13120733363","江西省乐平市"));
         session1.doWork(new Work() {
             @Override
             public void execute(Connection connection) throws SQLException {
@@ -128,7 +128,7 @@ public class AnnotationSessionTest {
 
         Session session2 = sessionFactory.getCurrentSession();
         transaction = session2.beginTransaction();
-        annotationStudent = new AnnotationStudent(2, "韩露", "女", new Date(), new AnnotationAddress("333300","13120733362","江西省乐平市"));
+        annotationStudent = new AnnotationStudent("韩露", "女", new Date(), new AnnotationAddress("333300","13120733362","江西省乐平市"));
         session2.doWork(new Work() {
             @Override
             public void execute(Connection connection) throws SQLException {

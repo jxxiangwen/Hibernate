@@ -15,30 +15,33 @@ import java.util.Iterator;
  */
 public class AnnotationGradeTest {
 
-//    /**
-//     * 一对多测试
-//     * 对象保存
-//     */
-//    @Test
-//    public void saveGradeOneToManyTest() {
-//        AnnotationGrade annotationGrade = new AnnotationGrade(1,"Java一班","Java软件开发一班");
-//        AnnotationStudent annotationStudent1 = new AnnotationStudent(1, "邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
-//        AnnotationStudent annotationStudent2 = new AnnotationStudent(1, "韩露", "女", new Date(), new AnnotationAddress("333300", "13120733362", "江西省乐平市"));
-//        annotationGrade.getAnnotationStudent().add(annotationStudent1);
-//        annotationGrade.getAnnotationStudent().add(annotationStudent2);
-//
-//        //得到session
-//        Session session = HibernateUtil.getSession();
-//        //创建事务
-//        Transaction transaction = session.beginTransaction();
-//        session.save(annotationStudent1);
-//        session.save(annotationStudent2);
-//        session.save(annotationGrade);
-//        //提交事务
-//        transaction.commit();
-//        //关闭session
-//        HibernateUtil.closeSession();
-//    }
+    /**
+     * 一对多测试
+     * 对象保存
+     */
+    @Test
+    public void saveGradeOneToManyTest() {
+        AnnotationGrade annotationGrade = new AnnotationGrade("Java一班","Java软件开发一班");
+        AnnotationStudent annotationStudent1 = new AnnotationStudent("邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
+        AnnotationStudent annotationStudent2 = new AnnotationStudent("韩露", "女", new Date(), new AnnotationAddress("333300", "13120733362", "江西省乐平市"));
+        annotationGrade.getAnnotationStudent().add(annotationStudent1);
+        annotationGrade.getAnnotationStudent().add(annotationStudent2);
+        annotationStudent1.setAnnotationGrade(annotationGrade);
+        annotationStudent2.setAnnotationGrade(annotationGrade);
+
+        //得到session
+        Session session = HibernateUtil.getSession();
+        //创建事务
+        Transaction transaction = session.beginTransaction();
+        session.save(annotationStudent1);
+        session.save(annotationStudent2);
+        session.save(annotationGrade);
+
+        //提交事务
+        transaction.commit();
+        //关闭session
+        HibernateUtil.closeSession();
+    }
 
     /**
      * 多对一测试
@@ -46,9 +49,11 @@ public class AnnotationGradeTest {
      */
     @Test
     public void saveGradeManyToOneTest() {
-        AnnotationGrade annotationGrade = new AnnotationGrade(1,"Java二班","Java软件开发二班");
-        AnnotationStudent annotationStudent1 = new AnnotationStudent(1, "邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
-        AnnotationStudent annotationStudent2 = new AnnotationStudent(1, "韩露", "女", new Date(), new AnnotationAddress("333300", "13120733362", "江西省乐平市"));
+        AnnotationGrade annotationGrade = new AnnotationGrade("Java二班","Java软件开发二班");
+        AnnotationStudent annotationStudent1 = new AnnotationStudent("邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
+        AnnotationStudent annotationStudent2 = new AnnotationStudent("韩露", "女", new Date(), new AnnotationAddress("333300", "13120733362", "江西省乐平市"));
+        annotationGrade.getAnnotationStudent().add(annotationStudent1);
+        annotationGrade.getAnnotationStudent().add(annotationStudent2);
         annotationStudent1.setAnnotationGrade(annotationGrade);
         annotationStudent2.setAnnotationGrade(annotationGrade);
 

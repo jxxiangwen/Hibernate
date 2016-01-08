@@ -63,7 +63,7 @@ public class AnnotationStudentTest {
      */
     @Test
     public void saveStudentTest() {
-        AnnotationStudent annotationStudent = new AnnotationStudent(1, "邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
+        AnnotationStudent annotationStudent = new AnnotationStudent("邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
         //不开启事务需要调用doWork,设置connection.setAutoCommit(true);并且调用session.flush();
 //        session.doWork(
 //                new Work() {
@@ -82,7 +82,7 @@ public class AnnotationStudentTest {
      */
     @Test
     public void writeBlobTest() {
-        AnnotationStudent annotationStudent = new AnnotationStudent(1, "邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
+        AnnotationStudent annotationStudent = new AnnotationStudent("邹祥文", "男", new Date(), new AnnotationAddress("333300", "13120733363", "江西省乐平市"));
         String bashDir = System.getProperty("user.dir");
         String picturePath = bashDir + File.separator + "resource" + File.separator + "Screenshot1.png";
         System.out.println(bashDir);//user.dir指定了当前的路径

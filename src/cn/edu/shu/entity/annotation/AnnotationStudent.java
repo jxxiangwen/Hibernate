@@ -32,16 +32,15 @@ public class AnnotationStudent implements Serializable {
     @Column(name = "picture")
     private Blob picture;//头像
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "annotation_grade_id")//指定外键名称
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name="annotation_grade_id", referencedColumnName="annotation_grade_id")//外键为sut_id，与student中的id关联
     private AnnotationGrade annotationGrade;//多对一使用
 
     public AnnotationStudent() {
 
     }
 
-    public AnnotationStudent(int studentId, String studentName, String gender, Date birthday, AnnotationAddress annotationAddress) {
-        this.studentId = studentId;
+    public AnnotationStudent(String studentName, String gender, Date birthday, AnnotationAddress annotationAddress) {
         this.studentName = studentName;
         this.gender = gender;
         this.birthday = birthday;
